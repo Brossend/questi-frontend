@@ -1,0 +1,18 @@
+.logo-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  &--position {
+    margin-top: auto;
+  }
+
+  &__icon {
+    margin: auto auto 31px;
+    max-width: 185px;
+  }
+
+  &__text {
+    margin: auto;
+    max-width: 290px;
+  }
+}

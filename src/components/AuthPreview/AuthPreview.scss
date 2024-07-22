@@ -1,0 +1,15 @@
+.view-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+
+    row-gap: 8px;
+
+    margin: auto auto 61px;
+  }
+}

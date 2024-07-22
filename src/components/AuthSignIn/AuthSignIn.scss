@@ -1,0 +1,55 @@
+.view-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+
+  &__text {
+    @include font(32px, 20px, 600);
+
+    margin: 42px auto 0;
+
+    width: 290px;
+  }
+
+  &__form {
+    margin: auto;
+  }
+
+  &__inputs {
+    display: grid;
+
+    justify-content: center;
+
+    row-gap: 10px;
+  }
+
+  &__split {
+    padding-top: 7px;
+    padding-bottom: 7px;
+
+    margin: 37px auto 0;
+
+    width: 290px;
+
+    border-top: 1px solid var(--white-dark);
+    border-bottom: 1px solid var(--white-dark);
+  }
+
+  &__split-text {
+    display: block;
+
+    text-align: center;
+
+    @include font(16px, 20px, 400);
+    color: var(--gray-light)
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+
+    margin-top: auto;
+    margin-bottom: 61px;
+  }
+}

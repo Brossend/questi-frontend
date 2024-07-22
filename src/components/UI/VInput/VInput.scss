@@ -1,0 +1,18 @@
+.input {
+  display: block;
+
+  border: 1.5px solid var(--gray-light);
+  border-radius: 25px;
+
+  outline:none;
+
+  padding-left: 24px;
+
+  @include font(16px, 20px, 400);
+  color: var(--black-light);
+
+  background-color: var(--gray);
+
+  width: 290px;
+  height: 55px;
+}
