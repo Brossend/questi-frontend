@@ -1,7 +1,7 @@
 <template>
   <div class="page-wrapper">
-    <AuthPreview v-if="true" />
-    <AuthSignIn  v-if="false" />
+    <AuthPreview v-if="false" />
+    <AuthSignIn  v-if="true" />
   </div>
 </template>
 
