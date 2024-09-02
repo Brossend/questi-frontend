@@ -1,7 +1,7 @@
 <template>
-  <div class="view-wrapper">
+  <VFrame>
     <VButtonIcon left="16" top="30">
-      <VIcon name="west" size="28" color="grey-7" />
+      <VIcon color="grey-7" name="west" size="28" />
     </VButtonIcon>
     <p class="view-wrapper__text">Регистрация</p>
     <div class="view-wrapper__form">
@@ -13,24 +13,27 @@
       <div class="view-wrapper__split">
         <span class="view-wrapper__split-text">или</span>
       </div>
-      <div style="width: 290px; display: flex; justify-content: center; gap: 28px; margin-top: 17px;">
-        <img src="../../assets/icons/VK.svg" alt="VK" />
-        <img src="../../assets/icons/Google.svg" alt="Google" />
+      <div class="view-wrapper__other-auth">
+        <img alt="VK" src="../../assets/icons/VK.svg" />
+        <img alt="Google" src="../../assets/icons/Google.svg" />
       </div>
     </div>
     <div class="view-wrapper__button">
       <VButton type="dark">Продолжить</VButton>
     </div>
-  </div>
+  </VFrame>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import VButton from 'components/UI/VButton/VButton.vue';
 import VInput from 'components/UI/VInput/VInput.vue';
 import VIcon from 'components/UI/VIcon/VIcon.vue';
 import VButtonIcon from 'components/UI/VButtonIcon/VButtonIcon.vue';
-import {ref} from 'vue';
-import {TInputs} from 'components/AuthSignIn/types';
+import { ref } from 'vue';
+import { TInputs } from 'components/AuthSignIn/types';
+import VFrame from 'components/UI/VFrame/VFrame.vue';
+
+const emit = defineEmits(['changeSection']);
 
 const inputs = ref<TInputs[]>([
   {
@@ -47,8 +50,8 @@ const inputs = ref<TInputs[]>([
     placeholder: 'Пароль',
     value: '',
     id: 'password'
-  },
+  }
 ]);
 </script>
 
-<style scoped lang="scss" src="./AuthSignIn.scss" />
+<style lang="scss" scoped src="./AuthSignIn.scss" />

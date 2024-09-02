@@ -3,3 +3,8 @@ export interface IVIcon {
   color?: string,
   size?: string,
 }
+
+export const defaultProps = {
+  size: '16',
+  color: 'black'
+};

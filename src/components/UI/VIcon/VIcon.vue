@@ -1,16 +1,16 @@
 <template>
-  <q-icon :name="name" :color="color" :style="{ fontSize: `${size}px` }"/>
+  <q-icon :color="color" :name="name" :style="computedFontSize" />
 </template>
 
-<script setup lang="ts">
- import { IVIcon } from 'components/UI/VIcon/types';
+<script lang="ts" setup>
+import { defaultProps, IVIcon } from 'components/UI/VIcon/types';
+import { computed } from 'vue';
 
- withDefaults(defineProps<IVIcon>(), {
-   size: '16',
-   color: 'black'
- });
+const props = withDefaults(defineProps<IVIcon>(), defaultProps);
+
+const computedFontSize = computed(() => ({
+  fontSize: `${props.size}px`
+}));
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style lang="scss" scoped src="./VIcon.scss" />
