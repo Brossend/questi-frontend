@@ -1,11 +1,29 @@
 <template>
-  <input class="input" :placeholder="props.placeholder" />
+  <input v-maska="mask" :placeholder="props.placeholder" :type="type" class="input" />
 </template>
 
-<script setup lang="ts">
-import {IVInput} from 'components/UI/VInput/types';
+<script lang="ts" setup>
+import { vMaska } from 'maska/vue';
+import { ETypes, IVInput } from 'components/UI/VInput/types';
+import { computed } from 'vue';
 
-const props = defineProps<IVInput>()
+const props = defineProps<IVInput>();
+
+const mask = computed(() => {
+  if (props.type === ETypes.phone) {
+    return '+7 (###) ###-##-##';
+  }
+
+  return '';
+});
+
+const type = computed(() => {
+  if (props.type === ETypes.password) {
+    return 'password';
+  }
+
+  return '';
+});
 </script>
 
-<style scoped lang="scss" src="./VInput.scss"/>
+<style lang="scss" scoped src="./VInput.scss" />
