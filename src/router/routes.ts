@@ -7,9 +7,9 @@ const routes: RouteRecordRaw[] = [
     children: [
       {
         path: '',
-        component: () => import('pages/IndexPage.vue')
-      },
-    ],
+        component: () => import('pages/MainPage/MainPage.vue')
+      }
+    ]
   },
   {
     path: '/auth',
@@ -17,8 +17,8 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/:catchAll(.*)*',
-    component: () => import('pages/ErrorNotFound.vue'),
-  },
+    component: () => import('pages/ErrorNotFound.vue')
+  }
 ];
 
 export default routes;

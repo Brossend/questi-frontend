@@ -7,7 +7,7 @@
     <div class="view-wrapper__form">
       <div class="view-wrapper__inputs">
         <template v-for="input in inputs" :key="input.id">
-          <VInput :placeholder="input.placeholder" :type="input.type" />
+          <VInput v-model="input.value" :placeholder="input.placeholder" :type="input.type" />
         </template>
       </div>
       <div class="view-wrapper__split">
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="view-wrapper__button">
-      <VButton type="dark">Продолжить</VButton>
+      <VButton type="dark" @click="signIn">Продолжить</VButton>
     </div>
   </VFrame>
 </template>
@@ -33,8 +33,9 @@ import { ref } from 'vue';
 import { TInputs } from 'components/AuthSignIn/types';
 import VFrame from 'components/UI/VFrame/VFrame.vue';
 import { ESection } from 'pages/AuthPage/types';
+import { formatPhoneNumber } from 'src/services/FormatPhoneNumber';
 
-const emit = defineEmits(['changeSection']);
+const emit = defineEmits(['changeSection', 'signIn']);
 
 const inputs = ref<TInputs[]>([
   {
@@ -56,6 +57,12 @@ const inputs = ref<TInputs[]>([
     id: 'password'
   }
 ]);
+
+const signIn = () => {
+  if (inputs.value.every(obj => !!obj.value)) {
+    emit('signIn', inputs.value[0].value, formatPhoneNumber(inputs.value[1].value), inputs.value[2].value);
+  }
+};
 
 const changeSection = () => {
   emit('changeSection', ESection.preview);

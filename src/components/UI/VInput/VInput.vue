@@ -1,5 +1,5 @@
 <template>
-  <input v-maska="mask" :placeholder="props.placeholder" :type="type" class="input" />
+  <input v-model="model" v-maska="mask" :placeholder="props.placeholder" :type="type" class="input" />
 </template>
 
 <script lang="ts" setup>
@@ -8,6 +8,8 @@ import { ETypes, IVInput } from 'components/UI/VInput/types';
 import { computed } from 'vue';
 
 const props = defineProps<IVInput>();
+
+const model = defineModel();
 
 const mask = computed(() => {
   if (props.type === ETypes.phone) {

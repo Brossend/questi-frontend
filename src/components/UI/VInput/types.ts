@@ -7,7 +7,5 @@ export const enum ETypes {
 
 export interface IVInput {
   placeholder: string,
-  type: TTypes,
-  isError: boolean,
-  errorMessage: string
+  type: TTypes
 }
