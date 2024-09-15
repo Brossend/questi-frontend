@@ -13,6 +13,9 @@ import AuthSignUp from 'components/AuthSignUp/AuthSignUp.vue';
 import { ref } from 'vue';
 import { ESection } from 'pages/AuthPage/types';
 import { useAuthStore } from 'stores/Auth/Auth';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const authStore = useAuthStore();
 
@@ -48,6 +51,8 @@ const signIn = async (name: string, phoneNumber: string, password: string) => {
     phone_number: phoneNumber,
     password: password
   });
+
+  await router.push('/');
 };
 
 const signUp = async (phoneNumber: string, password: string) => {
@@ -55,6 +60,8 @@ const signUp = async (phoneNumber: string, password: string) => {
     phone_number: phoneNumber,
     password: password
   });
+
+  await router.push('/');
 };
 </script>
 

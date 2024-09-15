@@ -2,9 +2,11 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 import { AuthAPI } from 'src/api/Auth/Auth';
 import { ISignIn, ISignUp } from 'src/api/Auth/Types';
+import { LocalStorage } from 'quasar';
 
 export const useAuthStore = defineStore('auth', () => {
   const isLoading = ref<boolean>(false);
+  const isAuthPage = ref(true);
 
   const signIn = async (data: ISignIn) => {
     try {
@@ -13,7 +15,7 @@ export const useAuthStore = defineStore('auth', () => {
       const res = await AuthAPI.signIn(data);
 
       if (res.status === 200) {
-        localStorage.setItem('access_token', res.data['access_token']);
+        LocalStorage.set('access_token', res.data['access_token']);
       }
     } catch (e) {
       console.error(e);
@@ -28,8 +30,8 @@ export const useAuthStore = defineStore('auth', () => {
 
       const res = await AuthAPI.signUp(data);
 
-      if (res.status === 200) {
-        localStorage.setItem('access_token', res.data['access_token']);
+      if (res.status === 201) {
+        LocalStorage.set('access_token', res.data['access_token']);
       }
     } catch (e) {
       console.error(e);
@@ -39,6 +41,8 @@ export const useAuthStore = defineStore('auth', () => {
   };
 
   return {
+    isAuthPage,
+    isLoading,
     signIn,
     signUp
   };

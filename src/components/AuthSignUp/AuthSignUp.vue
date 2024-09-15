@@ -34,9 +34,6 @@ import { ref } from 'vue';
 import { TInputs } from 'components/AuthSignIn/types';
 import { ESection } from 'pages/AuthPage/types';
 import { formatPhoneNumber } from 'src/services/FormatPhoneNumber';
-import { useRouter } from 'vue-router';
-
-const router = useRouter();
 
 const emit = defineEmits(['changeSection', 'signUp']);
 const inputs = ref<TInputs[]>([
@@ -61,7 +58,6 @@ const changeSection = () => {
 const signUp = () => {
   if (inputs.value.every(obj => !!obj.value)) {
     emit('signUp', formatPhoneNumber(inputs.value[0].value), inputs.value[1].value);
-    router.push('/');
   }
 };
 </script>

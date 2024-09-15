@@ -5,11 +5,12 @@
 <script lang="ts" setup>
 import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
+import { LocalStorage } from 'quasar';
 
 const router = useRouter();
 
 onMounted(() => {
-  if (!localStorage.getItem('access_token')) {
+  if (!LocalStorage.getItem('access_token')) {
     router.push('/auth');
   }
 });

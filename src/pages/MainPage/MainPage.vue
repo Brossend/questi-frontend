@@ -1,19 +1,42 @@
 <template>
-  <p>{{ `Аксесс токен: ${accessToken}` }}</p>
+  <div style="display: grid; row-gap: 15px; margin-left: 19px; margin-right: 21px; margin-top: 18px;">
+    <template v-for="route in ROUTES" :key="route.id">
+      <RouteCard :route="route" />
+    </template>
+  </div>
+
+  <p v-if="!authStore.isLoading">{{ `Аксесс токен: ${accessToken}` }}</p>
 
   <v-button type="dark" @click="unLogin">Разлогиниться</v-button>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { computed, onMounted } from 'vue';
 import VButton from 'components/UI/VButton/VButton.vue';
+import { LocalStorage } from 'quasar';
+import { useAuthStore } from 'stores/Auth/Auth';
+import RouteCard from 'components/RouteCard/RouteCard.vue';
+import { ROUTES } from 'src/mocks/data';
+import { storeToRefs } from 'pinia';
 
-const accessToken = ref(localStorage.getItem('access_token'));
+const authStore = useAuthStore();
+const { isAuthPage } = storeToRefs(authStore);
+
+const accessToken = computed(() => {
+  if (!authStore.isLoading) {
+    return LocalStorage.getItem('access_token');
+  }
+  return '';
+});
 
 const unLogin = () => {
-  localStorage.removeItem('access_token');
+  LocalStorage.removeItem('access_token');
   window.location.reload();
 };
+
+onMounted(() => {
+  isAuthPage.value = false;
+});
 </script>
 
 <style lang="scss" scoped />
