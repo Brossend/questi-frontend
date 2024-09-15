@@ -1,6 +1,6 @@
 <template>
   <div
-    style="position: relative; border-radius: 25px; background-color: white; box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.2);"
+    style="position: relative; border-radius: 25px; background-color: white; box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.2);"
     @click="openDetail">
     <img :alt="route.title" :src="route.image"
          style="border-radius: 25px 25px 0 0; width: 100%; height: 130px;">
