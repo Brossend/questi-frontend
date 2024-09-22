@@ -1,4 +1,6 @@
 import { IRoute } from 'stores/Routes/types';
+import { TFeed } from 'components/FeedCard/types';
+import { IProfile } from 'pages/ProfilePage/types';
 
 export const ROUTES: IRoute[] = [
   {
@@ -47,3 +49,92 @@ export const ROUTES: IRoute[] = [
     duration: 30
   }
 ];
+
+export const FEED: TFeed = {
+  subs: [
+    {
+      id: '1',
+      name: 'Ольга',
+      image: 'https://i.pinimg.com/736x/a4/81/6d/a4816d97e49971d4072ccfb57cd3199c.jpg'
+    },
+    {
+      id: '2',
+      name: 'Юлия',
+      image: 'https://avatars.yandex.net/get-music-content/5502420/0c7d60ab.a.24258349-1/m1000x1000?webp=false'
+    },
+    {
+      id: '3',
+      name: 'Иван',
+      image: 'https://i.pinimg.com/736x/05/00/46/0500460e589d6cf8b90ebe527e771c55.jpg'
+    },
+    {
+      id: '4',
+      name: 'Даниил',
+      image: 'https://i.pinimg.com/originals/24/29/d0/2429d0807980a833f634cdc19d370bf0.jpg'
+    },
+    {
+      id: '5',
+      name: 'Ирина',
+      image: 'https://avatars.mds.yandex.net/i?id=a3d624e155a58d2b6e817f457dba1e79_l-10304277-images-thumbs&ref=rim&n=13&w=1280&h=1280'
+    }
+  ],
+  posts: [
+    {
+      id: '1',
+      avatar: 'https://ke-images.servicecdn.ru/cgs74iuidfself866pb0/original.jpg',
+      name: 'Ирина Авдеева',
+      date: '01.12.2024 в 14:57',
+      description: 'Живописное место в Омской области. Всем советую!',
+      image: 'https://avatars.mds.yandex.net/i?id=a627175dca952ad5802f222bc8f41eca_l-10931123-images-thumbs&n=13'
+    },
+    {
+      id: '2',
+      avatar: 'https://ke-images.servicecdn.ru/cgs74iuidfself866pb0/original.jpg',
+      name: 'Ирина Авдеева',
+      date: '02.02.2024 в 12:14',
+      description: 'Классный ресторан!',
+      image: 'https://avatars.mds.yandex.net/get-altay/1811309/2a0000016ffcb20ea31c326fc1961ea98c50/XXL'
+    }, {
+      id: '3',
+      avatar: 'https://ke-images.servicecdn.ru/cgs74iuidfself866pb0/original.jpg',
+      name: 'Ирина Авдеева',
+      date: '13.03.2024 в 16:21',
+      description: 'Замечтельное местечко! Люблю здесь бывать по выходным!',
+      image: 'https://cdn.mlsn.ru/cian/images/large/uchastok-neftyanik3-8-ya-alleya-2071610643-1.jpg'
+    }
+  ]
+};
+
+export const PROFILE: IProfile = {
+  id: '0001',
+  name: 'Ирина Авдеева',
+  avatar: 'https://ke-images.servicecdn.ru/cgs74iuidfself866pb0/original.jpg',
+  quests: 0,
+  subscriptions: 3,
+  subscribers: 0,
+  posts: [
+    {
+      id: '1',
+      avatar: 'https://ke-images.servicecdn.ru/cgs74iuidfself866pb0/original.jpg',
+      name: 'Ирина Авдеева',
+      date: '01.12.2024 в 14:57',
+      description: 'Живописное место в Омской области. Всем советую!',
+      image: 'https://avatars.mds.yandex.net/i?id=a627175dca952ad5802f222bc8f41eca_l-10931123-images-thumbs&n=13'
+    },
+    {
+      id: '2',
+      avatar: 'https://ke-images.servicecdn.ru/cgs74iuidfself866pb0/original.jpg',
+      name: 'Ирина Авдеева',
+      date: '02.02.2024 в 12:14',
+      description: 'Классный ресторан!',
+      image: 'https://avatars.mds.yandex.net/get-altay/1811309/2a0000016ffcb20ea31c326fc1961ea98c50/XXL'
+    }, {
+      id: '3',
+      avatar: 'https://ke-images.servicecdn.ru/cgs74iuidfself866pb0/original.jpg',
+      name: 'Ирина Авдеева',
+      date: '13.03.2024 в 16:21',
+      description: 'Замечтельное местечко! Люблю здесь бывать по выходным!',
+      image: 'https://cdn.mlsn.ru/cian/images/large/uchastok-neftyanik3-8-ya-alleya-2071610643-1.jpg'
+    }
+  ]
+};

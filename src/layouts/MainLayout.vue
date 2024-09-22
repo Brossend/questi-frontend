@@ -1,12 +1,13 @@
 <template>
   <div style="display: flex; flex-direction: column; height: 100%">
-    <router-view />
+    <div style="overflow: auto; height: 100%">
+      <router-view />
+    </div>
 
     <div v-if="!isAuthPage" style="
   margin-top: auto;
   margin-bottom: 0;
   background-color: rgba(44, 44, 44, 1);
-  height: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -22,7 +23,7 @@
                    flex-direction: column;
                    padding: 6px 7px 4px;
 ">
-          <v-icon :name="bar.icon" color="white" size="21" style="margin: auto" />
+          <v-icon :name="bar.icon" color="white" size="21" style="margin: auto auto 4px;" />
           <p style="margin: auto; white-space: nowrap; font-weight: 400; font-size: 11px; line-height: 13px">{{ bar.name
             }}</p>
         </router-link>
