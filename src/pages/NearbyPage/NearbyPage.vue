@@ -2,19 +2,24 @@
   <yandex-map
     :settings="{
       location: {
-        center: [37.617644, 55.755819],
-        zoom: 9,
+        center: [73.379738, 54.982473],
+        zoom: 17,
       },
     }"
-    height="100vh"
   >
-    <yandex-map-default-scheme-layer :settings="{ theme: 'dark' }" />
-    <yandex-map-controls :settings="{ position: 'right' }">
-      <yandex-map-zoom-control />
-    </yandex-map-controls>
+    <yandex-map-default-scheme-layer :settings="{ theme: 'light' }" />
   </yandex-map>
 </template>
 
-<script lang="ts" setup>
-import { YandexMap, YandexMapControls, YandexMapDefaultSchemeLayer, YandexMapZoomControl } from 'vue-yandex-maps';
+<script setup lang="ts">
+import {
+  createYmapsOptions,
+  initYmaps,
+  YandexMap,
+  YandexMapDefaultSchemeLayer,
+} from 'vue-yandex-maps';
+
+createYmapsOptions({ apikey: '72f42b4f-6f60-4c7c-a61d-587906227047'});
+initYmaps();
 </script>
+

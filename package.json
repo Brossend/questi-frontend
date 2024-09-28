@@ -13,7 +13,6 @@
     "build": "quasar build"
   },
   "dependencies": {
-    "@2gis/mapgl": "^1.51.1",
     "@quasar/extras": "^1.16.4",
     "@vueuse/core": "^11.0.3",
     "axios": "^1.2.1",
