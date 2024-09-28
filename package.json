@@ -13,6 +13,7 @@
     "build": "quasar build"
   },
   "dependencies": {
+    "@2gis/mapgl": "^1.51.1",
     "@quasar/extras": "^1.16.4",
     "@vueuse/core": "^11.0.3",
     "axios": "^1.2.1",
@@ -22,7 +23,8 @@
     "pinia": "^2.0.11",
     "quasar": "^2.16.0",
     "vue": "^3.4.18",
-    "vue-router": "^4.0.12"
+    "vue-router": "^4.0.12",
+    "vue-yandex-maps": "^2.1.4"
   },
   "devDependencies": {
     "@quasar/app-vite": "^1.9.0",

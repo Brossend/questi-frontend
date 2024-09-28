@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@2gis/mapgl@^1.51.1":
+  version "1.51.1"
+  resolved "https://registry.yarnpkg.com/@2gis/mapgl/-/mapgl-1.51.1.tgz#2cf47af1d059b2364e0ac76b9e2577a03921b98e"
+  integrity sha512-8TaUGiKu71RG+bIoWaw0RQ/CJRcrEtBe2XGUy8Lb/KzxriuMggdrYInhL1XGE4qBW+hmZGzxWWJZ0ojXXQWZCQ==
+  dependencies:
+    "@types/geojson" "^7946.0.7"
+
 "@babel/code-frame@^7.12.13":
   version "7.24.7"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.24.7.tgz#882fd9e09e8ee324e496bd040401c6f046ef4465"
@@ -514,6 +521,11 @@
   resolved "https://registry.yarnpkg.com/@types/filewriter/-/filewriter-0.0.33.tgz#d9d611db9d9cd99ae4e458de420eeb64ad604ea8"
   integrity sha512-xFU8ZXTw4gd358lb2jw25nxY9QAgqn2+bKKjKOYfNCzN4DKCFetK7sPtrlpg66Ywe3vWY9FNxprZawAh9wfJ3g==
 
+"@types/geojson@^7946.0.7":
+  version "7946.0.14"
+  resolved "https://registry.yarnpkg.com/@types/geojson/-/geojson-7946.0.14.tgz#319b63ad6df705ee2a65a73ef042c8271e696613"
+  integrity sha512-WCfD5Ht3ZesJUsONdhvm84dmzWOiOzOAqOncN0++w0lBw1o8OuDNJF2McvvCef/yBqb/HYRahp1BYtODFQ8bRg==
+
 "@types/har-format@*":
   version "1.2.15"
   resolved "https://registry.yarnpkg.com/@types/har-format/-/har-format-1.2.15.tgz#f352493638c2f89d706438a19a9eb300b493b506"
@@ -825,6 +837,11 @@
   version "0.8.10"
   resolved "https://registry.yarnpkg.com/@xmldom/xmldom/-/xmldom-0.8.10.tgz#a1337ca426aa61cef9fe15b5b28e340a72f6fa99"
   integrity sha512-2WALfTl4xo2SkGCYRt6rDTFfk9R1czmBvUQy12gK2KuRKIpWEhcbbzy8EZXtz/jkRqHX8bFEc6FC1HjX4TUWYw==
+
+"@yandex/ymaps3-types@>=0.0.27":
+  version "0.0.28"
+  resolved "https://registry.yarnpkg.com/@yandex/ymaps3-types/-/ymaps3-types-0.0.28.tgz#42aa605fc9db447831e3d07779a12fff927265c6"
+  integrity sha512-xPXIDeN5zXWJB29o8yXgaOCLbQpHqqQrn6PaqPhqk4/0SM/pWWBuR9dI6wrM9ZBV7xnIrFIAbdF6hk3tqqs9Pg==
 
 abbrev@^1.0.0:
   version "1.1.1"
@@ -5586,6 +5603,13 @@ vue-tsc@^1.8.22:
     "@volar/typescript" "~1.11.1"
     "@vue/language-core" "1.8.27"
     semver "^7.5.4"
+
+vue-yandex-maps@^2.1.4:
+  version "2.1.4"
+  resolved "https://registry.yarnpkg.com/vue-yandex-maps/-/vue-yandex-maps-2.1.4.tgz#e5f987cfed3c9309657e868fd34ec1019b22483e"
+  integrity sha512-W/vJPbBRkSXpGxeDgHBYQmyViq4ct4T4Vih7RM2uhXMJySSHrVMl1yKUDE0qpg2Or4ZD9BiwYOm3HG/JtvcHxg==
+  dependencies:
+    "@yandex/ymaps3-types" ">=0.0.27"
 
 vue@^3.4.18:
   version "3.4.33"

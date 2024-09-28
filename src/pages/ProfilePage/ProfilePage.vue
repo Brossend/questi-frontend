@@ -42,7 +42,7 @@
       </div>
       <div
         style="border-radius: 10px; margin-bottom: 33px; border: 1px solid #D0CDCC; padding: 9px; display: flex; flex-direction: row; justify-content: space-between;">
-        <img v-for="n in 5" :key="n" alt="Достижение" src="src/assets/image/achive.svg" />
+        <img v-for="n in 5" :key="n" alt="Достижение" src="../../assets/image/achive.svg" />
       </div>
     </div>
     <div

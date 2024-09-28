@@ -16,6 +16,10 @@ const routes: RouteRecordRaw[] = [
       {
         path: 'profile',
         component: () => import('pages/ProfilePage/ProfilePage.vue')
+      },
+      {
+        path: 'quests',
+        component: () => import('pages/NearbyPage/NearbyPage.vue')
       }
     ]
   },
