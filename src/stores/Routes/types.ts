@@ -1,3 +1,10 @@
+import {LngLat} from '@yandex/ymaps3-types/common/types';
+
+export type TNearbyPoints = {
+  title: string,
+  coordinates: LngLat
+}
+
 type TPoints = {
   title: string,
   coordinates: number[]

@@ -1,4 +1,4 @@
-import { IRoute } from 'stores/Routes/types';
+import {IRoute, TNearbyPoints} from 'stores/Routes/types';
 import { TFeed } from 'components/FeedCard/types';
 import { IProfile } from 'pages/ProfilePage/types';
 
@@ -49,6 +49,21 @@ export const ROUTES: IRoute[] = [
     duration: 30
   }
 ];
+
+export const NEARBY_POINTS : TNearbyPoints[] = [
+  {
+    title: 'Первая точка',
+    coordinates: [73.3709, 54.988446]
+  },
+  {
+    title: 'Вторая точка',
+    coordinates: [73.375245, 54.983115]
+  },
+  {
+    title: 'Третья точка',
+    coordinates: [73.367841, 54.984475]
+  }
+]
 
 export const FEED: TFeed = {
   subs: [
