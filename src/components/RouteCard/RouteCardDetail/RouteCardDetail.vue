@@ -1,13 +1,13 @@
 <template>
   <div
-    style="background-color: var(--gray); display: flex; flex-direction: column; position: absolute; margin-left: -19px;">
+    style="background-color: var(--gray); height: calc(100vh - 66px); width: 100%; display: flex; flex-direction: column; position: absolute; margin-left: -19px;">
     <div style="display: flex; flex-direction: row; justify-content: center;">
-      <VButtonIcon left="0" style="margin-right: auto; margin-left: 18px;" top="0" @click="openDetail">
-        <VIcon color="grey-7" name="west" size="28" />
-      </VButtonIcon>
-      <p style="font-weight: 600;  margin-left: -18px; font-size: 20px; line-height: 24px; margin-right: auto">
-        {{ route.title }}</p>
-    </div>
+    <VButtonIcon left="0" style="margin-right: auto; margin-left: 18px;" top="0" @click="openDetail">
+      <VIcon color="grey-7" name="west" size="28" />
+    </VButtonIcon>
+    <p style="font-weight: 600;  margin-left: -18px; font-size: 20px; line-height: 24px; margin-right: auto">
+      {{ route.title }}</p>
+  </div>
     <div style="display: flex; flex-direction: row; justify-content: center; margin-bottom: 15px; margin-top: 8px;">
       <div style="border-radius: 10px; padding: 3px 4px; background-color: rgba(255, 255, 255, 0.8);">
         <p style="font-weight: 400; font-size: 10px; line-height: 12px; color: rgba(0, 0, 0, 0.8);">
@@ -44,7 +44,13 @@
       <p style="margin-top: 30px; font-size: 13px; font-weight: 400; line-height: 18px;">Всего полчаса, но столько
         впечатлений!</p>
     </div>
+
+    <button @click="openQuest" style="margin-top: auto; height: 59px; background-color: #F9C972; border: 0; cursor: pointer">
+      <span style="font-weight: 600; font-size: 20px; line-height: 24px; color: #E9680A">Начать!</span>
+    </button>
   </div>
+
+  <RouteCardQuest v-if="isOpenQuest" @open-quest="openQuest" :route="route" />
 </template>
 
 <script lang="ts" setup>
@@ -52,12 +58,20 @@ import VIcon from 'components/UI/VIcon/VIcon.vue';
 import VButtonIcon from 'components/UI/VButtonIcon/VButtonIcon.vue';
 import { IProps } from 'components/RouteCard/RouteCardDetail/types';
 import { routeType } from 'src/helpers/routeType';
+import {ref} from 'vue';
+import RouteCardQuest from 'components/RouteCard/RouteCardQuest/RouteCardQuest.vue';
 
 defineProps<IProps>();
 const emit = defineEmits(['openDetail']);
 
+const isOpenQuest = ref(false);
+
 const openDetail = () => {
   emit('openDetail');
+};
+
+const openQuest = () => {
+  isOpenQuest.value = !isOpenQuest.value
 };
 </script>
 
