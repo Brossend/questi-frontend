@@ -39,6 +39,9 @@
           src="../../../assets/icons/PositionMarker.svg"
         >
       </yandex-map-marker>
+      <yandex-map-controls :settings="{ position: 'left' }">
+        <yandex-map-geolocation-control/>
+      </yandex-map-controls>
     </yandex-map>
   </div>
 </template>
@@ -50,9 +53,9 @@ import {IProps} from 'components/RouteCard/RouteCardDetail/types';
 import {NEARBY_POINTS} from 'src/mocks/data';
 import {
   createYmapsOptions, initYmaps,
-  YandexMap,
+  YandexMap, YandexMapControls,
   YandexMapDefaultFeaturesLayer,
-  YandexMapDefaultSchemeLayer,
+  YandexMapDefaultSchemeLayer, YandexMapGeolocationControl,
   YandexMapMarker
 } from 'vue-yandex-maps';
 import {onMounted, ref} from 'vue';
