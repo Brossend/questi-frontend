@@ -9,7 +9,6 @@
       </p>
     </div>
     <yandex-map
-      v-model="map"
       v-if="!isLoading"
       :settings="{
       location: {
@@ -46,14 +45,6 @@
           src="../../../assets/icons/PositionMarker.svg"
         >
       </yandex-map-marker>
-
-      <yandex-map-feature
-        v-if="way"
-        :settings="{
-            ...way,
-            style: lineStyle,
-        }"
-      />
     </yandex-map>
   </div>
 </template>
@@ -63,91 +54,30 @@ import VButtonIcon from 'components/UI/VButtonIcon/VButtonIcon.vue';
 import VIcon from 'components/UI/VIcon/VIcon.vue';
 import {IProps} from 'components/RouteCard/RouteCardDetail/types';
 import {
-  createYmapsOptions, getLocationFromBounds, initYmaps,
+  createYmapsOptions, initYmaps,
   YandexMap,
   YandexMapDefaultFeaturesLayer,
-  YandexMapDefaultSchemeLayer, YandexMapFeature,
+  YandexMapDefaultSchemeLayer,
   YandexMapMarker
 } from 'vue-yandex-maps';
-import type { YMapLocationRequest } from '@yandex/ymaps3-types/imperative/YMap';
-import type { DrawingStyle, LngLat, RouteFeature, YMap } from '@yandex/ymaps3-types';
-import {onMounted, ref, shallowRef} from 'vue';
+import {onMounted, ref} from 'vue';
 
-const props = defineProps<IProps>();
+defineProps<IProps>();
 const emit = defineEmits(['openQuest']);
 
 const isLoading = ref(true);
 const position = ref();
-const way = ref<RouteFeature | null>(null);
-const map = shallowRef<YMap | null>(null);
 
 const openQuest = () => {
   emit('openQuest');
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const getPosition = () => {
   setInterval(async () => {
     position.value = await ymaps3.geolocation.getPosition();
   }, 1000);
-};
-
-const location = ref<YMapLocationRequest>();
-
-const lineStyle: DrawingStyle = {
-  fillRule: 'nonzero',
-  fill: '#333',
-  fillOpacity: 0.9,
-  stroke: [
-    {
-      width: 6,
-      color: '#007afce6',
-    },
-    {
-      width: 10,
-      color: '#fff',
-    },
-  ],
-};
-
-const fetchRoute = async (startCoordinates: LngLat, endCoordinates: LngLat) => {
-  const routes = await ymaps3.route({
-    points: [startCoordinates, endCoordinates],
-    type: 'walking',
-    bounds: true,
-  });
-
-  if (!routes[0]) return;
-
-  const firstRoute = routes[0].toRoute();
-
-  if (firstRoute.geometry.coordinates.length === 0) return;
-
-  return firstRoute;
-};
-
-const routeHandler = async (newRoute?: RouteFeature) => {
-  if (!newRoute) {
-    alert('Route not found');
-    way.value = null;
-    return;
-  }
-
-  way.value = newRoute;
-  if (newRoute.properties.bounds) {
-    const newLocation = await getLocationFromBounds({
-      bounds: newRoute.properties.bounds,
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      map: map.value!,
-    });
-
-    location.value = {
-      center: newLocation.center,
-      zoom: Math.floor(newLocation.zoom) - 1,
-      duration: 300,
-    };
-  }
-};
-
+}
 
 onMounted(async () => {
   await createYmapsOptions({ apikey: '72f42b4f-6f60-4c7c-a61d-587906227047'});
@@ -155,24 +85,8 @@ onMounted(async () => {
 
   position.value = await ymaps3.geolocation.getPosition();
   isLoading.value = false;
-  location.value = {
-    center: position.value.coords,
-    zoom: 17,
-  };
   //getPosition();
-
-  const fetchedRoute = await fetchRoute(position.value.coords, props.route.allPoints[0].coordinates);
-  await routeHandler(fetchedRoute);
 });
-
-// watch(VueYandexMaps.loadStatus, async status => {
-//   if (status !== 'loaded') return;
-//
-//   const fetchedRoute = await fetchRoute(position.value.coords, pointBCoordinates.value);
-//   await routeHandler(fetchedRoute);
-// }, {
-//   immediate: true,
-// });
 </script>
 
 <style scoped lang="scss" src="./RouteCardQuest.scss" />
