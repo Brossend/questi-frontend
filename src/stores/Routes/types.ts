@@ -10,6 +10,12 @@ type TPoints = {
   coordinates: number[]
 }
 
+type TAllPoints = {
+  title: string,
+  coordinates: LngLat,
+  active: boolean
+}
+
 export interface IRoute {
   id: string,
   image: string,
@@ -19,5 +25,6 @@ export interface IRoute {
   type: number,
   startPoints: TPoints[],
   points: TPoints[],
+  allPoints: TAllPoints[],
   duration: number
 }
