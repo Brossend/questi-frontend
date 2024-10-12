@@ -2,7 +2,7 @@
   <div style="background-color: var(--gray);  height: calc(100vh - 66px); width: 100%; display: flex; flex-direction: column; position: absolute; margin-left: -19px;">
     <div style="display: flex; flex-direction: column; justify-content: center; margin-bottom: 15px;">
       <div style="display: flex; width: 100%; flex-direction: row; justify-content: center; margin-bottom: 7px;">
-        <VButtonIcon left="0" style="margin-right: auto; margin-left: 18px;" top="0" @click="openQuest" >
+        <VButtonIcon left="0" style="margin-right: auto; margin-left: 18px; z-index: 2; cursor: pointer" top="0" @click="openQuest" >
           <VIcon color="grey-7" name="west" size="28" />
         </VButtonIcon>
         <p style="font-weight: 600;  margin-left: -18px; font-size: 20px; line-height: 24px; margin-right: auto">
