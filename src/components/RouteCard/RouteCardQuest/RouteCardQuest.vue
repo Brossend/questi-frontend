@@ -1,12 +1,18 @@
 <template>
   <div style="background-color: var(--gray);  height: calc(100vh - 66px); width: 100%; display: flex; flex-direction: column; position: absolute; margin-left: -19px;">
-    <div style="display: flex; flex-direction: row; justify-content: center; margin-bottom: 15px;">
-      <VButtonIcon left="0" style="margin-right: auto; margin-left: 18px;" top="0" @click="openQuest" >
-        <VIcon color="grey-7" name="west" size="28" />
-      </VButtonIcon>
-      <p style="font-weight: 600;  margin-left: -18px; font-size: 20px; line-height: 24px; margin-right: auto">
-        {{ route.title }}
-      </p>
+    <div style="display: flex; flex-direction: column; justify-content: center; margin-bottom: 15px;">
+      <div style="display: flex; width: 100%; flex-direction: row; justify-content: center; margin-bottom: 7px;">
+        <VButtonIcon left="0" style="margin-right: auto; margin-left: 18px;" top="0" @click="openQuest" >
+          <VIcon color="grey-7" name="west" size="28" />
+        </VButtonIcon>
+        <p style="font-weight: 600;  margin-left: -18px; font-size: 20px; line-height: 24px; margin-right: auto">
+          {{ route.title }}
+        </p>
+      </div>
+      <div style="display: flex; flex-direction: row; gap: 6px; margin: 0 auto;">
+        <img style="width: 13px; height: 17px" src="../../../assets/icons/Marker.svg" />
+        <p>Подойдите к точке, чтобы получить задание</p>
+      </div>
     </div>
     <yandex-map
       v-if="!isLoading"
@@ -46,6 +52,11 @@
         >
       </yandex-map-marker>
     </yandex-map>
+    <div style="display: flex; position: absolute; height: 100%; width: 100%;">
+      <button style="margin-top: auto; height: 59px; background-color: #F9C972; border: 0; cursor: pointer; margin-bottom: 8px; width: 308px; border-radius: 25px; margin-top: auto; margin-left: auto; margin-right: auto;">
+        <span style="font-weight: 600; font-size: 20px; line-height: 24px; color: #E9680A">Я на месте!</span>
+      </button>
+    </div>
   </div>
 </template>
 
