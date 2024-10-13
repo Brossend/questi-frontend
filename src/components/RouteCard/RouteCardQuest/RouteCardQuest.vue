@@ -70,6 +70,9 @@
         <span style=" font-size: 15px; line-height: 20px; color: #4D4D4D">Выйти</span>
       </button>
     </div>
+    <div v-if="isOpenQuestion" style="display: flex; flex-direction: column; z-index: 4; position: absolute; height: 100%; width: 100%; background-color: #F1EDEC;">
+      <p @click="toggleQuestion">{{currentQuestion.title}}</p>
+    </div>
   </div>
 </template>
 
@@ -91,10 +94,22 @@ const emit = defineEmits(['openQuest']);
 
 const isLoading = ref(true);
 const isOpenWarning = ref(false);
+const isOpenQuestion = ref(false);
 const position = ref();
 const currentPoint = ref({
   id: props.route.allPoints[0].id,
   index: 0
+});
+
+const currentQuestion = ref({
+  index: 0,
+  title: '',
+  description: '',
+  question: '',
+  answers: [{
+    text: '',
+    points: 0
+  }]
 });
 
 const openQuest = () => {
@@ -108,8 +123,30 @@ const toggleWarning = () => {
 const changePoint = () => {
   if (currentPoint.value.index + 1 < props.route.allPoints.length) {
     currentPoint.value.id = props.route.allPoints[currentPoint.value.index + 1].id;
+
     currentPoint.value.index = currentPoint.value.index + 1;
   }
+
+  if (currentPoint.value.index !== 0) {
+    if (currentQuestion.value.index !== props.route.allPoints.length) {
+      currentQuestion.value.index = currentQuestion.value.index + 1;
+
+      currentQuestion.value.title = props.route.allPoints[currentQuestion.value.index - 1].title;
+      currentQuestion.value.description = props.route.allPoints[currentQuestion.value.index - 1].description;
+      currentQuestion.value.answers = props.route.allPoints[currentQuestion.value.index - 1].answers;
+      currentQuestion.value.question = props.route.allPoints[currentQuestion.value.index - 1].question;
+
+      if (currentPoint.value.index > 1) {
+        toggleQuestion();
+      }
+    } else {
+      console.log('Конец');
+    }
+  }
+};
+
+const toggleQuestion = () => {
+  isOpenQuestion.value = !isOpenQuestion.value;
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

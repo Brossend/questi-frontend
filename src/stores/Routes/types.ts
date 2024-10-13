@@ -10,11 +10,18 @@ type TPoints = {
   coordinates: number[]
 }
 
+type TQuestion = {
+  text: string,
+  points: number
+}
+
 type TAllPoints = {
   id: string,
   title: string,
   coordinates: LngLat,
-  active: boolean
+  description: string,
+  question: string,
+  answers: TQuestion[]
 }
 
 export interface IRoute {
