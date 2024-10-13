@@ -50,7 +50,7 @@
     </button>
   </div>
 
-  <RouteCardQuest v-if="isOpenQuest" @open-quest="openQuest" :route="route" />
+  <RouteCardQuest v-if="isOpenQuest" @open-quest="openQuest" @close-quest="openDetail" :route="route" />
 </template>
 
 <script lang="ts" setup>
@@ -58,7 +58,7 @@ import VIcon from 'components/UI/VIcon/VIcon.vue';
 import VButtonIcon from 'components/UI/VButtonIcon/VButtonIcon.vue';
 import { IProps } from 'components/RouteCard/RouteCardDetail/types';
 import { routeType } from 'src/helpers/routeType';
-import {ref} from 'vue';
+import { ref} from 'vue';
 import RouteCardQuest from 'components/RouteCard/RouteCardQuest/RouteCardQuest.vue';
 
 defineProps<IProps>();

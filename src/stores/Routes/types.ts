@@ -10,7 +10,7 @@ type TPoints = {
   coordinates: number[]
 }
 
-type TQuestion = {
+export type TQuestion = {
   text: string,
   points: number
 }
