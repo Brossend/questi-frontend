@@ -48,36 +48,43 @@ export const ROUTES: IRoute[] = [
     ],
     allPoints: [
       {
+        id: '1',
         title: 'ост. Площадь Ленина',
         coordinates: [73.380547, 54.981385],
         active: true
       },
       {
+        id: '2',
         title: 'Музыкальный театр',
         coordinates: [73.382125, 54.982424],
         active: false
       },
       {
+        id: '3',
         title: 'Аллея олимписких игр',
         coordinates: [73.378587, 54.982409],
         active: false
       },
       {
+        id: '4',
         title: 'Юбилейный мост',
         coordinates: [73.376599, 54.982651],
         active: false
       },
       {
+        id: '5',
         title: 'Скульптура Городовому',
         coordinates: [73.376219, 54.983467],
         active: false
       },
       {
+        id: '6',
         title: 'Скульптура Любочки',
         coordinates: [73.374629, 54.985987],
         active: false
       },
       {
+        id: '7',
         title: 'Семейный ресторан "Где же кролик"',
         coordinates: [73.374854, 54.986231],
         active: false

@@ -2,7 +2,7 @@
   <div style="background-color: var(--gray);  height: calc(100vh - 66px); width: 100%; display: flex; flex-direction: column; position: absolute; margin-left: -19px;">
     <div style="display: flex; flex-direction: column; justify-content: center; margin-bottom: 15px;">
       <div style="display: flex; width: 100%; flex-direction: row; justify-content: center; margin-bottom: 7px;">
-        <VButtonIcon left="0" style="margin-right: auto; margin-left: 18px; z-index: 2; cursor: pointer" top="0" @click="openQuest" >
+        <VButtonIcon left="0" style="margin-right: auto; margin-left: 18px; z-index: 2; cursor: pointer" top="0" @click="toggleWarning" >
           <VIcon color="grey-7" name="west" size="28" />
         </VButtonIcon>
         <p style="font-weight: 600;  margin-left: -18px; font-size: 20px; line-height: 24px; margin-right: auto">
@@ -15,6 +15,7 @@
       </div>
     </div>
     <yandex-map
+      style="z-index: 2;"
       v-if="!isLoading"
       :settings="{
       location: {
@@ -32,7 +33,7 @@
         :settings="{ coordinates: point.coordinates }"
       >
         <img
-          v-if="point.active"
+          v-if="currentPoint.id === point.id"
           :alt="point.title"
           src="../../../assets/icons/Marker.svg"
         >
@@ -53,8 +54,20 @@
       </yandex-map-marker>
     </yandex-map>
     <div style="display: flex; position: absolute; height: 100%; width: 100%;">
-      <button style="margin-top: auto; height: 59px; background-color: #F9C972; border: 0; cursor: pointer; margin-bottom: 8px; width: 308px; border-radius: 25px; margin-top: auto; margin-left: auto; margin-right: auto;">
+      <button @click="changePoint" style="z-index: 2; height: 59px; background-color: #F9C972; border: 0; cursor: pointer; width: 308px; border-radius: 25px; margin: auto auto 8px;">
         <span style="font-weight: 600; font-size: 20px; line-height: 24px; color: #E9680A">Я на месте!</span>
+      </button>
+    </div>
+    <div v-if="isOpenWarning" style="display: flex; flex-direction: column; z-index: 3; position: absolute; height: 100%; width: 100%; background-color: #F1EDEC;">
+      <p style="font-size: 20px; font-weight: 600; margin: 158px auto 93px;">Осторожно!</p>
+      <p style="width: 290px; margin-right: auto; margin-left: auto; margin-bottom: 20px; text-align: center; color: #4D4D4D; font-size: 16px">Вы покидаете квест досрочно. Прохождение не сохранится.</p>
+      <p style="width: 290px; margin-right: auto; margin-left: auto; text-align: center; color: #4D4D4D; font-size: 16px">Вы уверены, что хотите выйти?</p>
+
+      <button @click="toggleWarning" style="width: 203px; margin: auto auto 15px; cursor: pointer; background-color: #F9C972; border: 0; border-radius: 25px; padding: 8px 24px; white-space: nowrap">
+        <span style="font-weight: 500; font-size: 16px; line-height: 24px; color: #E9680A">Продолжить квест</span>
+      </button>
+      <button @click="openQuest" style="width: 203px; margin-bottom: 36px; margin-right: auto; margin-left: auto; cursor: pointer; border: 0">
+        <span style=" font-size: 15px; line-height: 20px; color: #4D4D4D">Выйти</span>
       </button>
     </div>
   </div>
@@ -73,14 +86,30 @@ import {
 } from 'vue-yandex-maps';
 import {onMounted, ref} from 'vue';
 
-defineProps<IProps>();
+const props = defineProps<IProps>();
 const emit = defineEmits(['openQuest']);
 
 const isLoading = ref(true);
+const isOpenWarning = ref(false);
 const position = ref();
+const currentPoint = ref({
+  id: props.route.allPoints[0].id,
+  index: 0
+});
 
 const openQuest = () => {
   emit('openQuest');
+};
+
+const toggleWarning = () => {
+  isOpenWarning.value = !isOpenWarning.value
+}
+
+const changePoint = () => {
+  if (currentPoint.value.index + 1 < props.route.allPoints.length) {
+    currentPoint.value.id = props.route.allPoints[currentPoint.value.index + 1].id;
+    currentPoint.value.index = currentPoint.value.index + 1;
+  }
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -11,6 +11,7 @@ type TPoints = {
 }
 
 type TAllPoints = {
+  id: string,
   title: string,
   coordinates: LngLat,
   active: boolean
