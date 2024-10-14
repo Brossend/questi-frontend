@@ -6,7 +6,7 @@
       <div v-for="sub in FEED.subs" :key="sub.id"
            style="display: flex; flex-direction: column;">
         <img :alt="sub.id" :src="sub.image"
-             style="border-radius: 50px; width: 63px; height: 63px; margin-bottom: 6px" />
+             style="border-radius: 50px; width: 63px; height: 63px; margin-bottom: 6px; object-fit: cover;" />
         <p style="margin: 0 auto">{{ sub.name }}</p>
       </div>
     </div>

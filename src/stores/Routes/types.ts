@@ -18,6 +18,7 @@ export type TQuestion = {
 type TAllPoints = {
   id: string,
   title: string,
+  image: string,
   coordinates: LngLat,
   description: string,
   question: string,

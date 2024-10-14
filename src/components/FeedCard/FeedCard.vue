@@ -1,7 +1,7 @@
 <template>
   <div>
     <div style="display: flex; flex-direction: row; margin-bottom: 8px;">
-      <img :alt="post.id" :src="post.avatar" style="width: 30px; height: 30px; border-radius: 50px" />
+      <img :alt="post.id" :src="post.avatar" style="width: 30px; height: 30px; border-radius: 50px; object-fit: cover;" />
       <div style="display: flex; flex-direction: column; margin-left: 7px;">
         <p style="font-size: 14px; font-weight: 500; line-height: 17px; margin-bottom: 3px;">{{ post.name }}</p>
         <p style="font-size: 11px; font-weight: 400; line-height: 13px; color: #8F8D8C;">{{ post.date }}</p>

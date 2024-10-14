@@ -85,6 +85,7 @@
           <VIcon color="grey-7" name="west" size="28" />
         </VButtonIcon>
       </div>
+      <img :alt="currentQuestion.title" :src="currentQuestion.image" style="width: 100%; height: 186px; object-fit: cover; margin-bottom: 17px" />
       <p style="font-size: 20px; font-weight: 500; margin-left: auto; margin-right: auto">{{currentQuestion.title}}</p>
       <p style="font-size: 20px; font-weight: 500; margin-left: auto; margin-right: auto">{{`${currentQuestion.index - 1} /  ${props.route.allPoints.length - 1}`}}</p>
       <p style="font-size: 15px; font-weight: 500; margin-left: auto; margin-right: auto; margin-top: 19px">Описание</p>
@@ -117,7 +118,7 @@
           <VIcon color="grey-7" name="west" size="28" />
         </VButtonIcon>
       </div>
-      <img :alt="route.title" :src="route.image" style="width: 100%; height: 186px;" />
+      <img :alt="route.title" :src="route.image" style="width: 100%; height: 186px; object-fit: cover;" />
       <p style="font-weight: 600; font-size: 20px; width: 297px; text-align: center; margin: 19px auto 91px;">{{`Вы прошли квест ${route.title}`}}</p>
       <p style="margin-left: auto; margin-right: auto; font-size: 15px; font-weight: 500; margin-bottom: 19px">Итого собрано:</p>
       <div style="margin-left: auto; margin-right: auto; display: flex; flex-direction: row">
@@ -184,6 +185,7 @@ const currentPoint = ref({
 const currentQuestion = ref({
   index: 0,
   title: '',
+  image: '',
   description: '',
   question: '',
   answers: [{
@@ -226,6 +228,7 @@ const changePoint = () => {
       currentQuestion.value.description = props.route.allPoints[currentQuestion.value.index - 1].description;
       currentQuestion.value.answers = props.route.allPoints[currentQuestion.value.index - 1].answers;
       currentQuestion.value.question = props.route.allPoints[currentQuestion.value.index - 1].question;
+      currentQuestion.value.image = props.route.allPoints[currentQuestion.value.index - 1].image;
 
       if (currentPoint.value.index > 1) {
         toggleQuestion();

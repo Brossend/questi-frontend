@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <img :alt="route.title" :src="route.image" style="width: 100%; height: 186px;" />
+    <img :alt="route.title" :src="route.image" style="width: 100%; height: 186px; object-fit: cover;" />
 
     <div style="display: flex; flex-direction: row; padding-left: 18px; padding-right: 18px; margin-top: 11px;">
       <div style="display: flex; flex-direction: row; gap: 9px">

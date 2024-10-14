@@ -4,7 +4,7 @@
       <v-icon name="o_settings" size="28" />
     </div>
     <div style="display: flex; flex-direction: row;">
-      <img :alt="PROFILE.name" :src="PROFILE.avatar" style="width: 87px; height: 87px; border-radius: 50px" />
+      <img :alt="PROFILE.name" :src="PROFILE.avatar" style="width: 87px; height: 87px; border-radius: 50px; object-fit: cover;" />
       <div style="margin-left: 16px; display: flex; flex-direction: column;">
         <div style="display: flex; flex-direction: row; margin-bottom: 21px;">
           <p style="font-weight: 600; font-size: 20px; line-height: 24px; margin-right: 3px; white-space: nowrap">
