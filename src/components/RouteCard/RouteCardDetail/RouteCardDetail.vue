@@ -1,6 +1,6 @@
 <template>
   <div
-    style="background-color: var(--gray); height: calc(100vh - 66px); width: 100%; display: flex; flex-direction: column; position: absolute; margin-left: -19px;">
+    style="background-color: var(--gray); overflow-y: auto; height: calc(100vh - 66px); width: 100%; display: flex; flex-direction: column; position: absolute; margin-left: -19px;">
     <div style="display: flex; flex-direction: row; justify-content: center;">
     <VButtonIcon left="0" style="margin-right: auto; margin-left: 18px;" top="0" @click="openDetail">
       <VIcon color="grey-7" name="west" size="28" />
@@ -34,7 +34,7 @@
     </div>
 
     <div
-      style="display: flex; flex-direction: column; border-radius: 25px; border: 1px rgba(44, 44, 44, 1) solid; padding: 21px 22px 16px; margin-top: 14px; margin-left: 18px; margin-right: 18px;">
+      style="display: flex; flex-direction: column; border-radius: 25px; border: 1px rgba(44, 44, 44, 1) solid; padding: 21px 22px 16px; margin: 14px 18px 23px;">
       <p style="margin: 0 auto 10px; font-weight: 500; font-size: 15px; line-height: 18px;">Описание</p>
       <p style="font-size: 13px; font-weight: 400; line-height: 18px;">{{ route.description }}</p>
       <p style="margin: 20px auto 10px; font-weight: 500; font-size: 15px; line-height: 18px;">Точки</p>
@@ -45,7 +45,7 @@
         впечатлений!</p>
     </div>
 
-    <button @click="openQuest" style="margin-top: auto; height: 59px; background-color: #F9C972; border: 0; cursor: pointer">
+    <button @click="openQuest" style="margin-top: auto; height: 59px; padding-top: 18px; padding-bottom: 18px; background-color: #F9C972; border: 0; cursor: pointer">
       <span style="font-weight: 600; font-size: 20px; line-height: 24px; color: #E9680A">Начать!</span>
     </button>
   </div>

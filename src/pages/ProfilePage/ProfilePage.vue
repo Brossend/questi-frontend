@@ -1,5 +1,5 @@
 <template>
-  <div style="padding-left: 18px; padding-right: 22px; padding-top: 13px; height: 100%">
+  <div style="padding-left: 18px; padding-right: 22px; padding-top: 13px; height: 100%; overflow-y: auto; min-height: 660px">
     <div style="display: flex; flex-direction: row; justify-content: right;">
       <v-icon name="o_settings" size="28" />
     </div>
@@ -54,7 +54,7 @@
       </div>
     </div>
     <div
-      style="margin-top: 28px; display: flex; flex-direction: column; row-gap: 25px; padding-bottom: 20px; overflow: auto; height: calc(100% - 354px);">
+      style="margin-top: 28px; display: flex; flex-direction: column; row-gap: 25px; padding-bottom: 20px; overflow-y: auto; height: calc(100% - 354px);">
       <FeedCard v-for="post in PROFILE.posts" :key="post.id" :post="post" />
     </div>
   </div>

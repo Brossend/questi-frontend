@@ -1,5 +1,5 @@
 <template>
-  <div style="background-color: var(--gray);  height: calc(100vh - 66px); width: 100%; display: flex; flex-direction: column; position: absolute; margin-left: -19px;">
+  <div style="background-color: var(--gray); overflow-y: auto;  height: calc(100vh - 66px); width: 100%; display: flex; flex-direction: column; position: absolute; margin-left: -19px;">
     <div style="display: flex; flex-direction: column; justify-content: center; margin-bottom: 15px;">
       <div style="display: flex; width: 100%; flex-direction: row; justify-content: center; margin-bottom: 7px;">
         <VButtonIcon left="0" style="margin-right: auto; margin-left: 18px; z-index: 2; cursor: pointer" top="0" @click="toggleWarning" >
@@ -60,10 +60,10 @@
         <span style="font-weight: 600; font-size: 20px; line-height: 24px; color: #E9680A">Я на месте!</span>
       </button>
     </div>
-    <div v-if="isOpenWarning" style="display: flex; flex-direction: column; z-index: 3; position: absolute; height: 100%; width: 100%; background-color: #F1EDEC;">
+    <div v-if="isOpenWarning" style="display: flex; overflow-y: auto; flex-direction: column; z-index: 3; position: absolute; height: 100%; width: 100%; background-color: #F1EDEC;">
       <p style="font-size: 20px; font-weight: 600; margin: 158px auto 93px;">Осторожно!</p>
       <p style="width: 290px; margin-right: auto; margin-left: auto; margin-bottom: 20px; text-align: center; color: #4D4D4D; font-size: 16px">Вы покидаете квест досрочно. Прохождение не сохранится.</p>
-      <p style="width: 290px; margin-right: auto; margin-left: auto; text-align: center; color: #4D4D4D; font-size: 16px">Вы уверены, что хотите выйти?</p>
+      <p style="width: 290px; margin-right: auto; margin-bottom: 30px; margin-left: auto; text-align: center; color: #4D4D4D; font-size: 16px">Вы уверены, что хотите выйти?</p>
 
       <button @click="toggleWarning" style="width: 203px; margin: auto auto 15px; cursor: pointer; background-color: #F9C972; border: 0; border-radius: 25px; padding: 8px 24px; white-space: nowrap">
         <span style="font-weight: 500; font-size: 16px; line-height: 24px; color: #E9680A">Продолжить квест</span>
@@ -72,7 +72,7 @@
         <span style=" font-size: 15px; line-height: 20px; color: #4D4D4D">Выйти</span>
       </button>
     </div>
-    <div v-if="isOpenQuestion" style="display: flex; flex-direction: column; z-index: 4; position: absolute; height: 100%; width: 100%; background-color: #F1EDEC;">
+    <div v-if="isOpenQuestion" style="display: flex; overflow-y: auto; flex-direction: column; z-index: 4; position: absolute; height: 100%; width: 100%; background-color: #F1EDEC;">
       <div style="display: flex; width: 100%; flex-direction: row; justify-content: center; margin-bottom: 16px;">
         <VButtonIcon :disabled="isOpenResult" left="0" style="margin-right: auto; margin-left: 18px; z-index: 2; cursor: pointer" top="0" @click="() => {
           isOpenQuestion = false;
@@ -89,7 +89,7 @@
       <p style="font-size: 20px; font-weight: 500; margin-left: auto; margin-right: auto">{{`${currentQuestion.index - 1} /  ${props.route.allPoints.length - 1}`}}</p>
       <p style="font-size: 15px; font-weight: 500; margin-left: auto; margin-right: auto; margin-top: 19px">Описание</p>
       <p style="font-size: 15px; margin: 15px 25px 43px 26px;">{{currentQuestion.description}}</p>
-      <div style="border-radius: 25px; display: flex; flex-direction: column; border: 1px solid #2C2C2C; padding-bottom: 18px; margin-bottom: 22px">
+      <div style="border-radius: 25px; margin-left: 20px; margin-right: 20px; display: flex; flex-direction: column; border: 1px solid #2C2C2C; padding-bottom: 18px; margin-bottom: 22px">
         <p style="margin-top: 21px; margin-left: auto; margin-right: auto; font-weight: 500;">Задание</p>
         <p style="font-size: 13px; margin: 13px 22px;">{{currentQuestion.question}}</p>
         <button @click="selectAnswer(item, index)"
@@ -111,7 +111,7 @@
         </div>
       </div>
     </div>
-    <div v-if="isOpenOutcome" style="display: flex; flex-direction: column; z-index: 4; position: absolute; height: 100%; width: 100%; background-color: #F1EDEC;">
+    <div v-if="isOpenOutcome" style="display: flex; overflow-y: auto; flex-direction: column; z-index: 4; position: absolute; height: 100%; width: 100%; background-color: #F1EDEC;">
       <div style="display: flex; width: 100%; flex-direction: row; justify-content: center; margin-bottom: 16px;">
         <VButtonIcon left="0" style="margin-right: auto; margin-left: 18px; z-index: 2; cursor: pointer" top="0" @click="() => {isOpenOutcome = false; isOpenQuestion = true}" >
           <VIcon color="grey-7" name="west" size="28" />
@@ -124,13 +124,13 @@
         <p style="font-size: 20px; font-weight: 500; line-height: 18px; padding-top: 3px; margin-right: 6px">+ {{resultPoints}}</p>
         <img style="height: 24px" src="../../../assets/icons/Coin.svg" alt="Коин" />
       </div>
-      <div style="display: flex; flex-direction: column; margin-left: auto; margin-right: auto; margin-top: 90px">
+      <div style="display: flex; flex-direction: column; margin: 90px auto 50px;">
         <p style="font-size: 20px; margin-bottom: 19px">Пожалуйста, оцените квест</p>
         <div style="margin-right: auto; margin-left: auto; gap: 3px; display: flex; flex-direction: row">
           <v-icon style="cursor: pointer" size="40" @click="changeMark(n)" v-for="n in 5" :key="n" :color="mark >= n ? 'amber-7':'grey-5'" name="star" />
         </div>
       </div>
-      <button @click="closeQuest" style="margin-top: auto; height: 59px; background-color: #F9C972; border: 0; cursor: pointer">
+      <button @click="closeQuest" style="margin-top: auto; padding-top: 18px; padding-bottom: 18px; height: 59px; background-color: #F9C972; border: 0; cursor: pointer">
         <span style="font-weight: 600; font-size: 20px; line-height: 24px; color: #E9680A">Вернуться на главную</span>
       </button>
     </div>
