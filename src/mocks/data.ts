@@ -273,7 +273,7 @@ export const PROFILE: IProfile = {
   name: 'Ирина Авдеева',
   avatar: 'https://ke-images.servicecdn.ru/cgs74iuidfself866pb0/original.jpg',
   quests: 0,
-  subscriptions: 3,
+  subscriptions: 5,
   subscribers: 0,
   posts: [
     {
@@ -282,7 +282,7 @@ export const PROFILE: IProfile = {
       name: 'Ирина Авдеева',
       date: '01.12.2024 в 14:57',
       description: 'Живописное место в Омской области. Всем советую!',
-      image: 'https://avatars.mds.yandex.net/i?id=a627175dca952ad5802f222bc8f41eca_l-10931123-images-thumbs&n=13'
+      image: 'https://supersnimki.ru/images/pub/2014/12/27/b6f5e3ea-8df7-11e4-ad01-8fb378f96e81_original.jpg?202518'
     },
     {
       id: '2',
@@ -297,7 +297,7 @@ export const PROFILE: IProfile = {
       name: 'Ирина Авдеева',
       date: '13.03.2024 в 16:21',
       description: 'Замечтельное местечко! Люблю здесь бывать по выходным!',
-      image: 'https://cdn.mlsn.ru/cian/images/large/uchastok-neftyanik3-8-ya-alleya-2071610643-1.jpg'
+      image: 'https://avatars.dzeninfra.ru/get-zen_doc/1677529/pub_639013b9537fea0fef78981e_639013fe81ccdc5def309398/scale_1200'
     }
   ]
 };
