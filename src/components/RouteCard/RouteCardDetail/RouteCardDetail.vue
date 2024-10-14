@@ -1,7 +1,7 @@
 <template>
   <div
-    style="background-color: var(--gray); overflow-y: auto; height: calc(100vh - 66px); width: 100%; display: flex; flex-direction: column; position: absolute; margin-left: -19px;">
-    <div style="display: flex; flex-direction: row; justify-content: center;">
+    style="background-color: var(--gray); overflow-y: auto; height: calc(100% - 48px); width: 100%; display: flex; flex-direction: column; position: absolute; margin-left: -19px;">
+    <div style="display: flex; flex-direction: row; justify-content: center; margin-top: 18px;">
     <VButtonIcon left="0" style="margin-right: auto; margin-left: 18px;" top="0" @click="openDetail">
       <VIcon color="grey-7" name="west" size="28" />
     </VButtonIcon>

@@ -1,5 +1,5 @@
 <template>
-  <div style="display: grid; row-gap: 15px; margin-left: 19px; margin-right: 21px; margin-top: 18px;">
+  <div style="display: grid; margin-left: 19px; margin-right: 21px;">
     <RouteCard v-for="route in ROUTES" :key="route.id" :route="route" />
   </div>
 

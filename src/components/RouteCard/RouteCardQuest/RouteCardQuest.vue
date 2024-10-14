@@ -1,6 +1,6 @@
 <template>
-  <div style="background-color: var(--gray); overflow-y: auto;  height: calc(100vh - 66px); width: 100%; display: flex; flex-direction: column; position: absolute; margin-left: -19px;">
-    <div style="display: flex; flex-direction: column; justify-content: center; margin-bottom: 15px;">
+  <div style="background-color: var(--gray); overflow-y: auto;  height: calc(100vh - 48px); width: 100%; display: flex; flex-direction: column; position: absolute; margin-left: -19px;">
+    <div style="display: flex; flex-direction: column; justify-content: center; margin-bottom: 15px; margin-top: 18px">
       <div style="display: flex; width: 100%; flex-direction: row; justify-content: center; margin-bottom: 7px;">
         <VButtonIcon left="0" style="margin-right: auto; margin-left: 18px; z-index: 2; cursor: pointer" top="0" @click="toggleWarning" >
           <VIcon color="grey-7" name="west" size="28" />
@@ -72,8 +72,8 @@
         <span style=" font-size: 15px; line-height: 20px; color: #4D4D4D">Выйти</span>
       </button>
     </div>
-    <div v-if="isOpenQuestion" style="display: flex; overflow-y: auto; flex-direction: column; z-index: 4; position: absolute; height: 100%; width: 100%; background-color: #F1EDEC;">
-      <div style="display: flex; width: 100%; flex-direction: row; justify-content: center; margin-bottom: 16px;">
+    <div v-if="isOpenQuestion" style="display: flex; overflow-y: auto; flex-direction: column; z-index: 4; position: absolute; height: calc(100%); width: 100%; background-color: #F1EDEC;">
+      <div style="display: flex; width: 100%; flex-direction: row; justify-content: center; margin-bottom: 16px; margin-top: 18px;">
         <VButtonIcon :disabled="isOpenResult" left="0" style="margin-right: auto; margin-left: 18px; z-index: 2; cursor: pointer" top="0" @click="() => {
           isOpenQuestion = false;
 
@@ -113,7 +113,7 @@
       </div>
     </div>
     <div v-if="isOpenOutcome" style="display: flex; overflow-y: auto; flex-direction: column; z-index: 4; position: absolute; height: 100%; width: 100%; background-color: #F1EDEC;">
-      <div style="display: flex; width: 100%; flex-direction: row; justify-content: center; margin-bottom: 16px;">
+      <div style="display: flex; width: 100%; flex-direction: row; justify-content: center; margin-bottom: 16px; margin-top: 18px;">
         <VButtonIcon left="0" style="margin-right: auto; margin-left: 18px; z-index: 2; cursor: pointer" top="0" @click="() => {isOpenOutcome = false; isOpenQuestion = true}" >
           <VIcon color="grey-7" name="west" size="28" />
         </VButtonIcon>
