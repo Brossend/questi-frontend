@@ -14,7 +14,7 @@
       <p style="margin-right: auto; font-weight: 400; font-size: 12px; line-height: 14px;">{{ route.title }}</p>
       <div style="display: flex; flex-direction: row; margin: auto 0">
         <template v-for="n in route.rate" :key="n">
-          <v-icon color="yellow" name="star" size="14" />
+          <v-icon color="amber-7" name="star" size="14" />
         </template>
       </div>
     </div>
