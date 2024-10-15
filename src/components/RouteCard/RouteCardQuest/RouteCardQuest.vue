@@ -102,7 +102,7 @@
         </button>
         <div v-if="isOpenResult" style="display: flex; flex-direction: column">
           <p style="font-size: 13px; margin-left: 22px">{{ `${selectedQuestion.points === 0 ? 'Неверно!' : 'Верно!'}` }}</p>
-          <p style="font-size: 13px; margin-left: 22px">Пояснительное пояснение</p>
+<!--          <p style="font-size: 13px; margin-left: 22px">Пояснительное пояснение</p>-->
           <p style="font-size: 13px; margin-left: 22px">{{`+ ${selectedQuestion.points}`}}</p>
           <button @click="() => {
             currentQuestion.index === props.route.allPoints.length ? toggleOutcome() :  toggleQuestion()
